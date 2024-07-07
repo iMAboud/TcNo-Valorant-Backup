@@ -6,7 +6,7 @@
 This is a simple backup and restore script that saves you a lot of time configuring settings and inserting passwords for Valorant and TcNo Account Switcher.
 
 ## Download
-[Valorant Backup](https://github.com/iMAboud/TcNo-Valorant-Backup/releases/download/v.0.1/Valorant.Backup.exe)
+[Valorant Backup](https://github.com/iMAboud/TcNo-Valorant-Backup/releases/download/v0.1/Valorant.Backup.exe)
 ## Usage
 - **Backup**: Click Backup, and it will save all necessary files from "TcNo Account Switcher" and "Riot Client/Valorant" into a ZIP folder. Save that ZIP folder somewhere for later to restore.
 - **Restore**: Click Restore, select the ZIP file, and it will restore all these files into their paths, now you're ready to use your accounts without re-entering passwords or configuring settings in Valorant for each account.
