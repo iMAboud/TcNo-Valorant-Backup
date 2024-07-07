@@ -1,3 +1,5 @@
+<div align="center">
+
 # TcNo and Valorant Backup | Restore
 
 ## Description
@@ -9,11 +11,22 @@ This is a simple backup and restore script that saves you lots of time configuri
 
 ![](https://i.imgur.com/BJQAFF5.png)
 
-Dependencies:
+
+## Dependencies:
 ``
 pip install pillow
 ``
 
-This can be reconfigured to be used an any other platform supported by TcNo Account Switcher, edit the python script and configure it to backup any other folder.
+
+## Make it an EXE
+If you wish to make it an exe so you can use it on any other device without needing python or installing dependencies then follow these simple steps:
+
+1. Ofc you need python installed and added to path.
+2. open powershell and type `pip install pyinstaller`
+3. close and relaunch powershell and `cd` to valobackup.py and valorant.ico path then type `pyinstaller --onefile --windowed --icon=valorant.ico --name "Valorant Backup" ValoBackup.py`
+4. Wait until finish, then it'll create a "dist" folder where the .exe is inside it. 
 
 
+This script can be reconfigured to be used with any other platform supported by TcNo Account Switcher, edit the python script and configure it to backup any other folder.
+
+</div>
