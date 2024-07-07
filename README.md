@@ -3,7 +3,7 @@
 # TcNo and Valorant Backup | Restore
 
 ## Description
-This is a simple backup and restore script that saves you lots of time configuring and inserting passwords for Valorant and TcNo Account Switcher.
+This is a simple backup and restore script that saves you a lot of time configuring settings and inserting passwords for Valorant and TcNo Account Switcher.
 
 ## Usage
 - **Backup**: Click Backup, and it will save all necessary files from "TcNo Account Switcher" and "Riot Client/Valorant" into a ZIP folder. Save that ZIP folder somewhere for later to restore.
