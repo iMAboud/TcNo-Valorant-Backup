@@ -5,8 +5,8 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk
 from datetime import datetime
+import sys
 
-# List of directories to backup and restore
 directories_to_backup = {
     "TcNo Account Switcher": os.path.join(os.getenv("USERPROFILE"), "AppData", "Roaming", "TcNo Account Switcher"),
     "Riot Games": os.path.join(os.getenv("USERPROFILE"), "AppData", "Local", "Riot Games"),
@@ -15,7 +15,7 @@ directories_to_backup = {
 
 def backup():
     today = datetime.now()
-    suggested_filename = f"ValorantBackup | {today.strftime('%d-%m')}.zip"
+    suggested_filename = f"ValorantBackup {today.strftime('%d-%m')}.zip"
     zip_filename = filedialog.asksaveasfilename(defaultextension=".zip", filetypes=[("ZIP files", "*.zip")], initialfile=suggested_filename)
     
     if zip_filename:
@@ -49,7 +49,7 @@ class BackupRestoreApp:
         close_button = tk.Button(self.root, text="X", command=self.root.quit, fg="white", bg="#FF6347", font=("Arial", 12, "bold"), bd=0, relief="flat", highlightthickness=0)
         close_button.place(relx=1.0, x=-10, y=10, anchor='ne')
         
-        self.img = Image.open(r"valorant.ico")
+        self.img = Image.open(self.resource_path("valorant.ico"))
         original_width, original_height = self.img.size
         aspect_ratio = original_width / original_height
         new_width = 200
@@ -69,6 +69,13 @@ class BackupRestoreApp:
         restore_button.pack(pady=10)
         restore_button.bind("<Enter>", lambda e: restore_button.config(bg="#2E8B57"))
         restore_button.bind("<Leave>", lambda e: restore_button.config(bg="#32CD32"))
+
+    def resource_path(self, relative_path):
+        try:
+            base_path = sys._MEIPASS
+        except Exception:
+            base_path = os.path.abspath(".")
+        return os.path.join(base_path, relative_path)
 
 if __name__ == "__main__":
     root = tk.Tk()
