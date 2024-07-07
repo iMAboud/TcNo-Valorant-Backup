@@ -5,7 +5,7 @@ a = Analysis(
     ['ValoBackup.py'],
     pathex=[],
     binaries=[],
-    datas=[],
+    datas=[('valorant.ico', '.')],
     hiddenimports=[],
     hookspath=[],
     hooksconfig={},
