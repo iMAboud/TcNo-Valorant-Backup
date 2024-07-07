@@ -13,7 +13,6 @@ directories_to_backup = {
     "VALORANT": os.path.join(os.getenv("USERPROFILE"), "AppData", "Local", "VALORANT"),
 }
 
-# Backup Function
 def backup():
     today = datetime.now()
     suggested_filename = f"ValorantBackup | {today.strftime('%d-%m')}.zip"
@@ -28,10 +27,9 @@ def backup():
                         try:
                             zipf.write(file_path, os.path.relpath(file_path, os.getenv("USERPROFILE")))
                         except PermissionError:
-                            print(f"Permission denied: {file_path}, skipping...")  # Skip files that can't be accessed
+                            print(f"Permission denied: {file_path}, skipping...")  
         messagebox.showinfo("Backup", "Backup completed successfully!")
 
-# Restore Function
 def restore():
     userprofile = os.getenv("USERPROFILE")
     zip_filename = filedialog.askopenfilename(filetypes=[("ZIP files", "*.zip")])
@@ -41,7 +39,6 @@ def restore():
             zipf.extractall(userprofile)
         messagebox.showinfo("Restore", "Restore completed successfully!")
 
-# GUI Setup
 class BackupRestoreApp:
     def __init__(self, root):
         self.root = root
@@ -49,14 +46,10 @@ class BackupRestoreApp:
         self.root.geometry("500x400")
         self.root.configure(bg="#2E2E2E")
         
-        # Close Button
         close_button = tk.Button(self.root, text="X", command=self.root.quit, fg="white", bg="#FF6347", font=("Arial", 12, "bold"), bd=0, relief="flat", highlightthickness=0)
-        # Move the close button to the top right corner
         close_button.place(relx=1.0, x=-10, y=10, anchor='ne')
         
-        # Load Image
         self.img = Image.open(r"valorant.ico")
-        # Maintain aspect ratio
         original_width, original_height = self.img.size
         aspect_ratio = original_width / original_height
         new_width = 200
@@ -64,17 +57,14 @@ class BackupRestoreApp:
         self.img = self.img.resize((new_width, new_height), Image.Resampling.LANCZOS)
         self.img = ImageTk.PhotoImage(self.img)
         
-        # Display Image
         img_label = tk.Label(self.root, image=self.img, bg="#2E2E2E")
         img_label.pack(pady=20)
         
-        # Backup Button
         backup_button = tk.Button(self.root, text="Backup", command=backup, fg="white", bg="#1E90FF", font=("Arial", 12, "bold"), bd=0, relief="flat", highlightthickness=0)
         backup_button.pack(pady=10)
         backup_button.bind("<Enter>", lambda e: backup_button.config(bg="#4169E1"))
         backup_button.bind("<Leave>", lambda e: backup_button.config(bg="#1E90FF"))
         
-        # Restore Button
         restore_button = tk.Button(self.root, text="Restore", command=restore, fg="white", bg="#32CD32", font=("Arial", 12, "bold"), bd=0, relief="flat", highlightthickness=0)
         restore_button.pack(pady=10)
         restore_button.bind("<Enter>", lambda e: restore_button.config(bg="#2E8B57"))
