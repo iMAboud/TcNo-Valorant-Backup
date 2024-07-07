@@ -17,6 +17,7 @@ This is a simple backup and restore script that saves you a lot of time configur
 pip install pillow
 ``
 
+This script can be reconfigured to be used with any other platform supported by TcNo Account Switcher, edit the python script and configure it to backup any other folder.
 
 ## Make it an EXE
 If you wish to make it an exe so you can use it on any other device without needing python or installing dependencies then follow these simple steps:
@@ -27,6 +28,5 @@ If you wish to make it an exe so you can use it on any other device without need
 4. Wait until finish, then it'll create a "dist" folder where the .exe is inside it. 
 
 
-This script can be reconfigured to be used with any other platform supported by TcNo Account Switcher, edit the python script and configure it to backup any other folder.
 
 </div>
